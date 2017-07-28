@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>altair21's Douban Movie Gallery</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8"/>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="Movie Gallery">
+    <meta name="screen-orientation" content="landscape"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="full-screen" content="yes"/>
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="output.json"></script>
+    <script src="./dist/index.js"></script>
+    <style>
+      #container {
+        max-width: 1200px;
+        margin-left: auto;
+        margin-right: auto;
+        column-count: 2;
+        column-gap: 0;
+        -webkit-column-count: 2;
+        -webkit-column-gap: 0;
+        -moz-column-count: 2;
+        -moz-column-gap: 0;
+      };
+      @media (min-width: 400px) {
+        #container {
+          column-count: 3;
+          -webkit-column-count: 3;
+          -moz-column-count: 3;
+        };
+      }
+      @media (min-width: 750px) {
+        #container {
+          column-count: 4;
+          -webkit-column-count: 4;
+          -moz-column-count: 4;
+        };
+      }
+      @media (min-width: 970px) {
+        #container {
+          column-count: 5;
+          -webkit-column-count: 5;
+          -moz-column-count: 5;
+        };
+      }
+      @media (min-width: 1170px) {
+        #container {
+          column-count: 6;
+          -webkit-column-count: 6;
+          -moz-column-count: 6;
+        }
+      }
+      .card {
+        padding: 0;
+        break-inside: avoid;
+        -webkit-break-inside: avoid;
+      };
+    </style>
+  </head>
+  <body>
+    <div id="container">
+    </div>
+    <div id="spinner"></div>
+  </body>
+</html>
