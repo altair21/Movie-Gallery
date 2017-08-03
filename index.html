@@ -9,7 +9,7 @@
     <meta name="screen-orientation" content="landscape"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="full-screen" content="yes"/>
-    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
     <script type="text/javascript" src="output.json"></script>
     <script src="./dist/index.js"></script>
     <style>
@@ -33,10 +33,19 @@
         -webkit-break-inside: avoid;
         overflow: hidden;
       };
+      #info {
+        position: fixed;
+        left: 0px;
+        bottom: 0px;
+        width: 10%;
+        background-color: black;
+      };
     </style>
   </head>
   <body>
     <div id="container">
+    </div>
+    <div id="info">
     </div>
     <div id="spinner"></div>
   </body>
