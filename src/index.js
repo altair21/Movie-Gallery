@@ -79,7 +79,7 @@ $().ready(() => {
           const clickHandler = () => {
             isSelected[id] = !isSelected[id];
             if (isSelected[id]) {
-              selectItem(placeholder, id, _data[id].name);
+              selectItem(placeholder, id, `${_data[id].name}(${_data[id].year || '未知年份'})`);
             } else {
               unselectItem();
             }
