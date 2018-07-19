@@ -60,7 +60,7 @@ $().ready(() => {
     const height = (_data[id].h / _data[id].w) * absoluteWidth;
     columnHeights[columnNum] = id;
     column.append(`<div class="card" id="card-${id}"></div>`);
-    const imgSrc = _data[id].posterURL;
+    const imgSrc = (_data[id].posterURL || '').replace('webp', 'jpg');
     const image = $('<img />');
     const placeholder = $('<div />')
       .css('background-color', _data[id].color || '#ffffff')
