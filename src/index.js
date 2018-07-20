@@ -40,11 +40,11 @@ $().ready(() => {
       selectedIndex = index;
       isSelected[index] = true;
       setTimeout(() => {
+        $('#info-text').text(text);
         jObj.children('img').animate({
           opacity: 0.7,
           borderRadius: '18%',
         }, 300);
-        $('#info-text').text(text);
         $('#info-panel').stop().animate({
           bottom: 0,
           height: `${infoPanelHeight}px`,
@@ -124,6 +124,7 @@ $().ready(() => {
       const windowHeight = window.innerHeight;
       infoPanelHeight = windowHeight * 0.16;
       $('#info').css('height', `${infoPanelHeight}px`);
+      $('#info-panel').css('bottom', `-${2.5 * infoPanelHeight}px`);
       for (let i = 0, l = presetWidth.length; i < l; i++) {
         if (windowWidth > presetWidth[i]) {
           totalColumn = l - i;
