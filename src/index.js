@@ -7,6 +7,7 @@ $().ready(() => {
     const totalLen = _data.length;
     const columnHeights = []; // 记录每一列当前最后一个card的id
     const isSelected = [];  // 如果记录成 jQuery 的属性会有 bug
+    const innerInfoPanelHeight = Number.parseFloat($('#info-panel').css('height')); // info-text 最大高度
     let curLen = 0; // 记录当前已放置的数量
     let isEnd = false;
     let absoluteWidth = 200;  // 每一列的宽度
@@ -17,6 +18,16 @@ $().ready(() => {
     // const infoPanel = $('<div id="info-panel"></div>')
     //   .css('position', 'fixed').css('bottom', '-16%')
     //   .css('')
+
+    const resizeTextToFit = () => {
+      const fontSize = $('#info-text').css('font-size');
+      $('#info-text').css('font-size', Number.parseFloat(fontSize) - 1);
+
+      console.log(fontSize, Number.parseFloat(fontSize) - 1, $('#info-text').height(), innerInfoPanelHeight);
+      if ($('#info-text').height() > innerInfoPanelHeight) {
+        resizeTextToFit();
+      }
+    };
 
     const unselectItem = () => {
       if (selectedIndex === -1) {
@@ -40,7 +51,8 @@ $().ready(() => {
       selectedIndex = index;
       isSelected[index] = true;
       setTimeout(() => {
-        $('#info-text').text(text);
+        $('#info-text').css('font-size', '4.8vh').text(text);
+        resizeTextToFit();
         jObj.children('img').animate({
           opacity: 0.7,
           borderRadius: '18%',
@@ -81,7 +93,10 @@ $().ready(() => {
             const clickHandler = () => {
               isSelected[id] = !isSelected[id];
               if (isSelected[id]) {
-                selectItem(placeholder, id, `${_data[id].name}(${_data[id].year || '未知年份'})`);
+                const director = _data[id].director || [];
+                const directorStr = director.length > 4 ?
+                  `${director.slice(0, 4).join('、')} 等, ` : `${director.join('、')}, `;
+                selectItem(placeholder, id, `${_data[id].name} (${directorStr}${_data[id].year || '未知年份'})`);
               } else {
                 unselectItem();
               }
