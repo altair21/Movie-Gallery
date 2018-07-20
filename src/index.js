@@ -128,7 +128,6 @@ $().ready(() => {
         if (windowWidth > presetWidth[i]) {
           totalColumn = l - i;
           absoluteWidth = Math.min(1200, Math.max(windowWidth, presetWidth[i])) / totalColumn;
-          $('.column').css('width', absoluteWidth);
           break;
         }
       }
@@ -138,6 +137,7 @@ $().ready(() => {
       for (let i = 0; i < Math.min(50, _data.length); i++) {
         appendToDOM(getShortestColumnNumber(), curLen++);
       }
+      $('.column').css('width', absoluteWidth);
     };
 
     init();
