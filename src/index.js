@@ -1,5 +1,5 @@
 const _data = JSON.parse(data);
-const presetWidth = [960, 750, 400, 200, 0];
+const presetWidth = [2200, 1920, 1600, 1280, 960, 750, 400, 200, 0];
 $().ready(() => {
   setTimeout(() => {
     $('#info-panel').css('display', 'table');
@@ -128,7 +128,7 @@ $().ready(() => {
       for (let i = 0, l = presetWidth.length; i < l; i++) {
         if (windowWidth > presetWidth[i]) {
           totalColumn = l - i;
-          absoluteWidth = Math.min(1200, Math.max(windowWidth, presetWidth[i])) / totalColumn;
+          absoluteWidth = Math.min(2500, Math.max(windowWidth, presetWidth[i])) / totalColumn;
           break;
         }
       }
