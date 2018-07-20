@@ -96,7 +96,7 @@ $().ready(() => {
                 const director = _data[id].director || [];
                 const directorStr = director.length > 4 ?
                   `${director.slice(0, 4).join('、')} 等, ` : `${director.join('、')}, `;
-                selectItem(placeholder, id, `${_data[id].name} (${directorStr}${_data[id].year || '未知年份'})`);
+                selectItem(placeholder, id, `${_data[id].name} (${director.length > 0 ? directorStr : ''}${_data[id].year || '未知年份'})`);
               } else {
                 unselectItem();
               }
